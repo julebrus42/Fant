@@ -5,8 +5,10 @@
  */
 package ProjectFiles;
 
+import database.DatabaseClass;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -14,16 +16,40 @@ import java.util.List;
  */
 public class ItemService {
     
-    public List<Item> getAllItem() {
-        Item bike = new Item(1, 500, "Daniel");
-        Item door = new Item(2, 1000, "Petter");
-        Item book = new Item(3, 350, "Sverre");
-        
-        List<Item> items = new ArrayList<>();
-        items.add(bike);
-        items.add(door);
-        items.add(book);
-        return items;
+    private Map<Long, Item> items = DatabaseClass.getItems();
+    
+    public List<Item> getAllItem()
+    {
+        return new ArrayList<Item>(items.values());
     }
     
-}
+    public ItemService() {
+        items.put(1L, new Item(1, 500, "Daniel"));
+        items.put(1L, new Item(1, 500, "Daniel"));
+
+    }
+    
+    public Item getItem(long id) {
+        return items.get(id);
+    }
+    
+    public Item addItem(Item item) {
+        item.setId(items.size() + 1);
+        items.put(item.getId(), item);
+        return item;
+    }
+    
+    public Item updateItem(Item item) {
+        if(item.getId() <= 0) {
+            return null;
+        }
+        items.put(item.getId(), item);
+        return item;
+    }
+    
+    public Item removeItem(long id) {
+        return items.remove(id);
+    }
+
+} 
+
