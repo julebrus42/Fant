@@ -17,4 +17,6 @@ public class JavaEE8Resource {
                 .ok("ping")
                 .build();
     }
+    
+    
 }
