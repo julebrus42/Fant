@@ -18,16 +18,16 @@ public class ItemService {
     
     private Map<Long, Item> items = DatabaseClass.getItems();
     
+    public ItemService() {
+        items.put(1L, new Item(1, 50000, "Daniel"));
+        items.put(2L, new Item(2, 1212, "Petter"));
+    }
+    
     public List<Item> getAllItem()
     {
         return new ArrayList<Item>(items.values());
     }
     
-    public ItemService() {
-        items.put(1L, new Item(1, 500, "Daniel"));
-        items.put(1L, new Item(1, 500, "Daniel"));
-
-    }
     
     public Item getItem(long id) {
         return items.get(id);
