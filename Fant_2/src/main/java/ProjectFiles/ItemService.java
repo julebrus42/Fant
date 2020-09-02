@@ -16,15 +16,11 @@ import java.util.Map;
  */
 public class ItemService {
     
-    private Map<Long, Item> items = DatabaseClass.getItems();
+    private final Map<Long, Item> items = DatabaseClass.getItems();
     
-    public ItemService() {
-        items.put(1L, new Item(1, 50000, "Daniel"));
-        items.put(2L, new Item(2, 1212, "Petter"));
-    }
     
-    public List<Item> getAllItem()
-    {
+    
+   /* public List<Item> getAllItem() {
         return new ArrayList<Item>(items.values());
     }
     
@@ -50,6 +46,6 @@ public class ItemService {
     public Item removeItem(long id) {
         return items.remove(id);
     }
-
+*/
 } 
 

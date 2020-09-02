@@ -5,12 +5,16 @@
  */
 package ProjectFiles;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author danie
  */
-public class User {
+
+
+public class User implements Serializable{
     
     private long id;
     private String profileName;
